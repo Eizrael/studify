@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "309508206759",
+    "project_id": "schoufy-c452a",
+    "storage_bucket": "schoufy-c452a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309508206759:android:42974210c5221dae902b82",
+        "android_client_info": {
+          "package_name": "com.example.studify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO9U6mtxipF9Nq5Vy5IJ89wXJmleHxyvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309508206759:android:8b262eca085b040c902b82",
+        "android_client_info": {
+          "package_name": "com.example.schuofy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO9U6mtxipF9Nq5Vy5IJ89wXJmleHxyvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
