@@ -1,56 +1,144 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:studify/components/svg_buttons.dart';
 
 class CourseInfo extends ConsumerWidget {
-  CourseInfo({super.key});
+  final String courseName;
+  final String dayPickerText;
+  final String startTimeText;
+  final String endTimeText;
+  final VoidCallback dayPicker;
+  final VoidCallback startTime;
+  final VoidCallback endTime;
 
-  final List<String> svgPaths = [
-    'asset/atom.svg',
-    'asset/calculating.svg',
-    'asset/chemistry.svg',
-    'asset/engineer.svg',
-    'asset/engineering.svg',
-    'asset/language-learning.svg',
-    'asset/finance.svg',
-    'asset/maths.svg',
-    'asset/medical-team.svg',
-    'asset/programmer.svg',
-    'asset/stethoscope.svg',
-    'asset/worker.svg',
-  ];
+  const CourseInfo({super.key, 
+    required this.courseName,
+    this.dayPickerText = 'Monday',
+    this.startTimeText = '11:00 AM',
+    this.endTimeText = '12:00 PM',
+    required this.dayPicker,
+    required this.startTime,
+    required this.endTime,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 10,
       children: [
         //Course Name
-        Text('MTS 101'),
+        Text(
+          courseName,
+          style: TextStyle(
+            fontSize: 20,
+          ),
+        ),
 
-        //Row
-          // start date/time
-          // end date/time
-
-        //Svg buttons
-        SizedBox(
-          height: 60,
-          //width: 500,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          decoration: BoxDecoration(
+            color:Color(0xFFE8E8E8),
+            borderRadius: BorderRadius.circular(12)
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ...List.generate(svgPaths.length, (index) {
-                return Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: SvgButton(svgPath: svgPaths[index], onTap: () {
-                            
-                  }),
-                );
-              })
+              Text(
+                dayPickerText,
+                style: TextStyle(
+                  fontSize: 17
+                ),
+              ),
+              IconButton(
+                onPressed: dayPicker,
+                icon: Icon(Icons.keyboard_arrow_down_rounded),
+                color: Color(0xFF817FF3),
+                iconSize: 35,
+              )
             ],
           ),
-        )
+        ),
+        //Row
+        Row (
+          spacing: 10,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              spacing: 5,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Start Time',
+                  style: TextStyle(
+                    fontSize: 15
+                  )
+                ),
+                Container (
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE8E8E8),
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: Row (
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        startTimeText, style:
+                        TextStyle(
+                          fontSize: 17
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: startTime,
+                        icon: Icon(Icons.keyboard_arrow_down_rounded),
+                        color: Color(0xFF817FF3),
+                        iconSize: 35,
+                      )
+                    ],
+                  )
+                ),
+              ],
+            ),
         
+            Column(
+              spacing: 5,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'End Time',
+                  style: TextStyle(
+                    fontSize: 15
+                  )
+                ),
+                Container (
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE8E8E8),
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: Row (
+                    children: [
+                      Text(
+                        endTimeText, style:
+                        TextStyle(
+                          fontSize: 17
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: endTime,
+                        icon: Icon(Icons.keyboard_arrow_down_rounded),
+                        color: Color(0xFF817FF3),
+                        iconSize: 35,
+                      )
+                    ],
+                  )
+                ),
+              ],
+            ),
+          ]
+        )
       ],
     );
   }

@@ -69,7 +69,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   onPressed: () => _onItemTapped(1),
                 ),
                 CustomIconBtn(
-                  iconName: FluentIcons.calendar_agenda_20_filled,
+                  iconName: FluentIcons.person_20_filled,
                   isSelected: _selectedIndex == 2,
                   onPressed: () => _onItemTapped(2),
                 ),

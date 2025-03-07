@@ -8,7 +8,9 @@ class CourseCountNotifier extends StateNotifier <int> {
   }
 
   void decrease () {
-    state--;
+    if (state != 1) {
+      state--;
+    }
   }
 }
 
