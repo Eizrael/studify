@@ -9,7 +9,7 @@ import 'package:studify/auth/login_page.dart';
 import 'package:studify/auth/sign_up_page.dart';
 import 'package:studify/screens/assignmentpage.dart';
 import 'package:studify/screens/home_page.dart';
-import 'package:studify/screens/info_page_view/setup_page.dart';
+import 'package:studify/screens/info_page_view/setup_page1.dart';
 import 'package:studify/screens/start_page.dart';
 
 void main() async{
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFFFFFFF)),
         useMaterial3: true,
       ),
-      home: isAuthenticated ? InfoSetup() : StartPage(),
+      home: isAuthenticated ? SetupPage1() : StartPage(),
 
       routes: {
         '/loginPage': (context) => LoginPage(),
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         '/homepage': (context) => HomePage(),
         '/forgotpassword': (context) => ForgotPwd(),
         '/addasspage': (context) => AddAssignment(),
-        '/infopage': (context) => InfoSetup(),
+        '/infopage': (context) => SetupPage1(),
       },
     );
   }

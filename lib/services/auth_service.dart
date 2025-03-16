@@ -4,7 +4,7 @@ import 'package:studify/components/custom_snackbar.dart';
 // import 'package:studify/screens/home_page.dart';
 import 'dart:async';
 
-import 'package:studify/screens/info_page_view/setup_page.dart'; 
+import 'package:studify/screens/info_page_view/setup_page1.dart'; 
 
 class AuthService {
   Future<void> signup({
@@ -69,7 +69,7 @@ class AuthService {
             context,
             MaterialPageRoute(
               // builder: (context) => HomePage(),
-              builder: (context) => InfoSetup(), 
+              builder: (context) => SetupPage1(), 
             ),
             (route) => false,
           );
@@ -134,7 +134,7 @@ class AuthService {
             context,
             MaterialPageRoute(
               // builder: (context) => HomePage(), 
-              builder: (context) => InfoSetup(), 
+              builder: (context) => SetupPage1(), 
             ),
             (route) => false, 
           );
