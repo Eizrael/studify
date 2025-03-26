@@ -1,35 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class SetupPage1 extends StatelessWidget {
-//   const SetupPage1({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Align(
-//       alignment: Alignment.topCenter,
-//       child: Padding(
-//         padding: EdgeInsets.symmetric(horizontal: 15.0),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.center, 
-//           children: [
-//             SizedBox(height: 150),
-//             Image.asset ('asset/setup.png', height: 250, width: 250),
-//             Text (
-//               "One more before you're in",
-//               textAlign: TextAlign.center,
-//               style: TextStyle(
-//                 fontFamily: 'satoshi-black',
-//                 fontSize: 30
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -76,7 +44,9 @@ class SetupPage1 extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/setuppage2');
+                },
                 style: FilledButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                   backgroundColor: Colors.black,
@@ -129,3 +99,48 @@ class SetupPage1 extends StatelessWidget {
     );
   }
 }
+
+/*
+MaterialApp(
+  onGenerateRoute: (settings) {
+    if (settings.name == '/nextScreen') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => NextScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var begin = Offset(-1.0, 0.0); 
+          var end = Offset.zero;
+          var curve = Curves.easeInOut;
+
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      );
+    }
+    return null;
+  },
+);
+
+MaterialApp(
+  onGenerateRoute: (settings) {
+    if (settings.name == '/nextScreen') {
+      return PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 600), // Increase duration
+        pageBuilder: (context, animation, secondaryAnimation) => NextScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var begin = Offset(-1.0, 0.0);
+          var end = Offset.zero;
+          var curve = Curves.easeInOut;
+
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      );
+    }
+    return null;
+  },
+);
+ */

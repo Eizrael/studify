@@ -10,6 +10,7 @@ import 'package:studify/auth/sign_up_page.dart';
 import 'package:studify/screens/assignmentpage.dart';
 import 'package:studify/screens/home_page.dart';
 import 'package:studify/screens/info_page_view/setup_page1.dart';
+import 'package:studify/screens/info_page_view/setup_page2.dart';
 import 'package:studify/screens/start_page.dart';
 
 void main() async{
@@ -37,13 +38,34 @@ class MyApp extends StatelessWidget {
       ),
       home: isAuthenticated ? SetupPage1() : StartPage(),
 
+      onGenerateRoute: (settings) {
+        if (settings.name == '/nextScreen') {
+          return PageRouteBuilder(
+            transitionDuration: Duration(milliseconds: 900),
+            pageBuilder: (context, animation, secondaryAnimation) => SetupPage2(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              var begin = Offset(0.0, -1.0); 
+              var end = Offset.zero;
+              var curve = Curves.easeInOut;
+
+              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              var offsetAnimation = animation.drive(tween);
+
+              return SlideTransition(position: offsetAnimation, child: child);
+            },
+          );
+        }
+        return null;
+      },
+
       routes: {
         '/loginPage': (context) => LoginPage(),
         '/signupPage': (context) => SignUpPage(),
         '/homepage': (context) => HomePage(),
         '/forgotpassword': (context) => ForgotPwd(),
         '/addasspage': (context) => AddAssignment(),
-        '/infopage': (context) => SetupPage1(),
+        '/setuppage1': (context) => SetupPage1(),
+        '/setuppage2': (context) => SetupPage2()
       },
     );
   }

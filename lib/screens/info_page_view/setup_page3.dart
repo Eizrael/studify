@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:studify/components/course_textfield.dart';
-import 'package:studify/providers/num_selected.dart';
+import 'package:studify/providers/course_count.dart';
 import 'package:studify/providers/course_info.dart';
 import 'package:studify/components/custom_snackbar.dart';
 
@@ -56,23 +56,23 @@ class _SetupPage3State extends ConsumerState<SetupPage3> {
               ),
               SizedBox(height: 16),
       
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.62,
-                child: ListView.builder(
-                  itemCount: courseCount,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: CourseTextfield(
-                        label: 'Course ${index + 1}',
-                        courseNameHintText: 'Course name ${index + 1}',
-                        courseNameController: courseNameControllers[index],
-                        onCourseSelected: updateCourseData,
-                      ),
-                    );
-                  },
-                ),
-              ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height * 0.62,
+              //   child: ListView.builder(
+              //     itemCount: courseCount,
+              //     itemBuilder: (context, index) {
+              //       return Padding(
+              //         padding: const EdgeInsets.symmetric(vertical: 8.0),
+              //         child: CourseTextfield(
+              //           label: 'Course ${index + 1}',
+              //           courseNameHintText: 'Course name ${index + 1}',
+              //           courseNameController: courseNameControllers[index],
+              //           onCourseSelected: updateCourseData,
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
               //SizedBox(height: 40),
             ],
           ),
